@@ -1,7 +1,9 @@
 # new
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.16.0.
+Install yo, grunt-cli, bower, generator-angular and generator-karma:
+
+npm install -g grunt-cli bower yo generator-karma generator-angular
+
 
 ## Build & development
 
