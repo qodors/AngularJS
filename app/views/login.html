@@ -1,0 +1,77 @@
+<style>
+    .footer {
+        width:100% !important;
+        position:absolute !important;
+        bottom: 0 !important;
+    }
+</style>
+<section id="page-header" class="section background">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Login</h3>
+            </div>
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->
+<section class="section clearfix">
+    <div class="container">
+        <div class="row">
+            <div id="fullwidth" class="col-sm-12">
+
+                <!-- START CONTENT -->
+                <div class="row">
+                    <div id="content" class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="post-wrapper row clearfix">
+                            <div class="col-md-6 col-sm-12 col-xs-12 form-cust container-data">
+                                <form name="loginform" ng-controller="LoginCtrl" ng-submit="login(loginform)" class="form-horizontal" role="form" method="POST">
+                                    <div class="form-group" ng-class="{ 'has-error':errors || loginform.email.$error.email || loginform.email.$touched && loginform.email.$invalid }">
+                                        <label for="email" class="col-sm-2 control-label">Email:</label>
+
+                                        <div class="col-sm-10">
+                                            <input id="email" type="email" class="form-control" name="email" value="{{ login.email}}" placeholder="Enter Your Email Address"
+                                                   ng-model='login.email' required>
+
+                                            <span class="help-block" ng-messages="loginform.$error" role="alert">
+                                                <strong  ng-show="loginform.email.$error.email">Please Enter Valid Email</strong>
+                                            </span>
+                                            <span class="help-block" ng-show="errors">
+                                                <strong>{{errors}}</strong>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group" ng-class="{ 'has-error': loginform.password.$touched && loginform.password.$invalid }">
+                                        <label for="password" class="col-sm-2 control-label">Password:</label>
+
+                                        <div class="col-sm-10">
+                                            <input id="password" type="password" class="form-control" name="password" placeholder="password"
+                                                   ng-model='login.password' required ng-minlength="6">
+
+                                            <span class="help-block" ng-messages="loginF.$error" role="alert">
+                                                <strong  ng-show="loginform.password.$error.minlength">Password You have Entered is too Small</strong>
+                                            </span>
+                                            <span class="help-block" ng-show="loginform.password.$invalid && loginform.password.$touched">
+                                                <strong>Password must be 6 character long.</strong>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-4">
+                                            <button type="submit" class="btn btn-primary btn-block" ng-disabled="loginform.$invalid">
+                                                Login
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div><!-- end col -->
+                        </div><!-- end post-wrapper -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+                <!-- END CONTENT -->
+
+            </div><!-- end fullwidth -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->

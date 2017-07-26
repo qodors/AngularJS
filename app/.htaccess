@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^.*$ index.html
+
+RewriteRule ^(.*)-tn\.(png|jpeg|webp)$    /$1-200X200.$2 [L]

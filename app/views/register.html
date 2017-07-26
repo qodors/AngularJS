@@ -1,0 +1,119 @@
+<style>
+    .footer {
+        width:100% !important;
+        position:absolute !important;
+        bottom: 0 !important;
+    }
+</style>
+<section id="page-header" class="section background">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Registration</h3>
+            </div>
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->
+<section class="section clearfix">
+    <div class="container">
+        <div class="row">
+            <div id="fullwidth" class="col-sm-12">
+                <!-- START CONTENT -->
+                <div class="row">
+                    <div id="content" class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="post-wrapper row clearfix">
+                            <div class="col-md-7 col-sm-12 col-xs-12 form-cust" >
+                                <form name="registration_form" class="form-horizontal" role="form" method="POST" ng-submit="registration()">
+                                    <div class="form-group" ng-class="{ 'has-error':registration_form.first_name.$touched && registration_form.first_name.$invalid || registration_form.last_name.$touched && registration_form.last_name.$invalid}">
+                                        <label for="first_name" class="col-sm-3 control-label">Your Name:</label>
+
+                                        <div class="col-sm-4">
+                                            <input id="first_name" type="text" class="form-control" name="first_name" value="" 
+                                                   placeholder="first name" ng-model="register.first_name" required>
+
+                                            <span class="help-block" ng-show="registration_form.first_name.$invalid && registration_form.first_name.$touched">
+                                                <strong>Please Enter First name</strong>
+                                            </span>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <input id="last_name" type="text" class="form-control" name="last_name" value="" 
+                                                   placeholder="last name" ng-model="register.last_name" required>
+                                            <span class="help-block" ng-show="registration_form.last_name.$invalid && registration_form.last_name.$touched">
+                                                <strong>Please Enter Last name</strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Gender:</label>
+                                        <div class="col-sm-8">
+                                            <input type="radio" ng-checked="true" name="gender" value="male" ng-model="register.gender"> Male
+                                            <input type="radio" name="gender" value="female" ng-model="register.gender"> Female
+                                        </div>
+                                    </div>
+                                    <div class="form-group" ng-class="{ 'has-error':errors.key === 'email' || err || registration_form.emai.$error.email || registration_form.email.$touched && registration_form.email.$invalid}">
+                                        <label for="email" class="col-sm-3 control-label">EMail Address:</label>
+
+                                        <div class="col-sm-8">
+                                            <input id="email" type="email" class="form-control" name="email" value="" 
+                                                   placeholder="abc@xyz.com" ng-model="register.email" required>
+                                            <span class="help-block" ng-messages="registration_form.$error">
+                                                <strong ng-show="registration_form.email.$error.email">Not a valid email</strong>
+                                            </span>
+                                            <span class="help-block" ng-show="registration_form.email.$touched && registration_form.email.$invalid">
+                                                <strong>Please Enter valid email</strong>
+                                            </span>
+                                            <span class="help-block" ng-show="errors.key === 'email'">
+                                                <strong>{{errors.message}}</strong>
+                                            </span>
+                                            <span class="help-block" ng-show="err">
+                                                <strong>{{err}}</strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" ng-class="{ 'has-error':errors.key === 'password' || registration_form.password.$error.minlength || registration_form.password.$touched && registration_form.password.$invalid}">
+                                        <label for="password" class="col-sm-3 control-label">Password:</label>
+
+                                        <div class="col-sm-8">
+                                            <input id="password" type="password" class="form-control" name="password" 
+                                                   placeholder="Enter minimum 6 digits password" ng-model="register.password" 
+                                                   required ng-minlength="6">
+
+                                            <span class="help-block" ng-messages="registration_form.$error" role="alert">
+                                                <strong  ng-show="registration_form.password.$error.minlength">Password You have Entered is too Small.</strong>
+                                            </span>
+                                            <span class="help-block" ng-show="registration_form.password.$invalid && registration_form.password.$touched">
+                                                <strong>Please Enter valid password</strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" ng-class="{ 'has-error': registration_form.password_confirmation.$error.minlength || registration_form.password_confirmation.$touched && registration_form.password_confirmation.$invalid}">
+                                        <label for="password-confirm" class="col-sm-3 control-label">Confirm Password:</label>
+
+                                        <div class="col-sm-8">
+                                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" 
+                                                   placeholder="confirm password" ng-model="register.password_confirmation" 
+                                                   required="" compare-to="register.password">
+
+                                            <span class="help-block" ng-show="registration_form.password_confirmation.$touched && registration_form.password_confirmation.$invalid">
+                                                <strong>Confirm password must be same as Password.</strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-8">
+                                            <button type="submit" class="btn btn-warning btn-normal pull-right" ng-disabled="registration_form.$invalid">
+                                                Register As New User
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div><!-- end col -->
+                    </div><!-- end post-wrapper -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+            <!-- END CONTENT -->
+        </div><!-- end row -->
+    </div><!-- end container -->
+</section><!-- end section -->
